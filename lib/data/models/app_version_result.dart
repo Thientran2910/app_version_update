@@ -6,15 +6,18 @@ import 'package:flutter/cupertino.dart';
 /// * ```canUpdate``` is true if exists avaible updates
 /// * ```platform``` [TargetPlatform] for determine use in android or iOS
 class AppVersionResult {
-  AppVersionResult(
-      {this.storeVersion,
-      this.storeUrl,
-      this.platform,
-      this.canUpdate,
-      this.appleId,
-      this.playStoreId});
+  AppVersionResult({
+    this.storeVersion,
+    this.storeUrl,
+    this.platform,
+    this.canUpdate,
+    this.appleId,
+    this.playStoreId,
+    this.releaseNotes,
+  });
   String? storeVersion, storeUrl, appleId, playStoreId;
   bool? canUpdate = false;
+  String? releaseNotes;
 
   TargetPlatform? platform;
 
