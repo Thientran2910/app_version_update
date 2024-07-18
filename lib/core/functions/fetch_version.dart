@@ -50,8 +50,7 @@ Future<AppVersionData> fetchAndroid({
   String? lang,
 }) async {
   playStoreId = playStoreId ?? packageInfo?.packageName;
-
-  final parameters = {"id": 'vn.finpath', "hl": country};
+  final parameters = {"id": playStoreId, "hl": country};
   var uri = Uri.https(playStoreAuthority, playStoreUndecodedPath, parameters);
   final response =
       await http.get(uri, headers: headers).catchError((e) => throw e);
@@ -120,7 +119,8 @@ Future<AppVersionData> fetchIOS({
       throw " Aplication not found in Apple Store, verify your app id. ";
     } else {
       return AppVersionData(
-        storeVersion: jsonResult['results'].first['version'],
+        // storeVersion: jsonResult['results'].first['version'],
+        storeVersion: '3.10.10',
         storeUrl: jsonResult['results'].first['trackViewUrl'],
         localVersion: packageInfo?.version,
         targetPlatform: TargetPlatform.iOS,

@@ -22,4 +22,30 @@ class AppVersionResult {
   TargetPlatform? platform;
 
   then(Null Function(dynamic data) param0) {}
+
+  // toJson
+  Map<String, dynamic> toJson() {
+    return {
+      'storeVersion': storeVersion,
+      'storeUrl': storeUrl,
+      'appleId': appleId,
+      'playStoreId': playStoreId,
+      'canUpdate': canUpdate,
+      'releaseNotes': releaseNotes,
+      // 'platform': platform,
+    };
+  }
+
+  // fromJson
+  factory AppVersionResult.fromJson(Map<dynamic, dynamic> json) {
+    return AppVersionResult(
+      storeVersion: json['storeVersion'],
+      storeUrl: json['storeUrl'],
+      appleId: json['appleId'],
+      playStoreId: json['playStoreId'],
+      canUpdate: json['canUpdate'],
+      releaseNotes: json['releaseNotes'],
+      // platform: json['platform'],
+    );
+  }
 }
