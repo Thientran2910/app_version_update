@@ -119,8 +119,7 @@ Future<AppVersionData> fetchIOS({
       throw " Aplication not found in Apple Store, verify your app id. ";
     } else {
       return AppVersionData(
-        // storeVersion: jsonResult['results'].first['version'],
-        storeVersion: '3.10.10',
+        storeVersion: jsonResult['results'].first['version'],
         storeUrl: jsonResult['results'].first['trackViewUrl'],
         localVersion: packageInfo?.version,
         targetPlatform: TargetPlatform.iOS,
